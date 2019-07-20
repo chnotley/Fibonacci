@@ -15,5 +15,6 @@ class Fibonacci
 
  public:
     Fibonacci();
-    unsigned long getNextInFibonacciSequence(void);
+    unsigned long iterativeNextInSequence(void);
+    void recursivePrintSequence(unsigned long, unsigned long, unsigned long);
 };

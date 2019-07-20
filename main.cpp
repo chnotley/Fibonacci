@@ -1,26 +1,30 @@
 #include <iostream>
 #include "fibonacci.h"
+#define FIBONACCI_SEQUENCE_LIMIT 50
 
+//
+// Program to display first 50 numbers is the Fibonacci sequence
+// using an iterative approach followed by a recursive approach
+//
 int main()
 {
-    unsigned int count = 0;
+    int sequenceIterator;
     Fibonacci obj;
 
-    std::cout << "Program displays the first n numbers in the Fibonacci Sequence.\n";
-    std::cout << "Enter number of Fibonaccci numbers to display (50 maximum):\n";
-    std::cin >> count;
-  
-    if(count > 50)
+    std::cout << "\nUsing iterative method to disply the first " \
+              << FIBONACCI_SEQUENCE_LIMIT \
+              << " numbers of the Fibonacci Sequence\n\n";
+
+    for(sequenceIterator = 0; sequenceIterator <  FIBONACCI_SEQUENCE_LIMIT; sequenceIterator++)
     {
-        std::cout << count << " is too large.  Maximum number of Fibonacci numbers is 50.\n";
+        std::cout << obj.iterativeNextInSequence() << '\n';
     }
-    else
-    {
-        while(count--)
-        {
-            std::cout << obj.getNextInFibonacciSequence() << '\n';
-        }
-    }
+
+    std::cout << "\nUsing recursive method to disply the first " \
+              << FIBONACCI_SEQUENCE_LIMIT \
+              << " numbers of the Fibonacci Sequence\n\n";
+
+    obj.recursivePrintSequence(0, 0, FIBONACCI_SEQUENCE_LIMIT);
 
     return 0;
 }
