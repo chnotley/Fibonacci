@@ -1,0 +1,5 @@
+class Fibonacci
+{
+ private:
+ public:
+};
