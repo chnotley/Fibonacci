@@ -4,6 +4,7 @@
 int main()
 {
     unsigned int count = 0;
+    Fibonacci obj;
 
     std::cout << "Program displays the first n numbers in the Fibonacci Sequence.\n";
     std::cout << "Enter number of Fibonaccci numbers to display (50 maximum):\n";
@@ -15,7 +16,10 @@ int main()
     }
     else
     {
-        std::cout << count << '\n';
+        while(count--)
+        {
+            std::cout << obj.getNextInFibonacciSequence() << '\n';
+        }
     }
 
     return 0;
