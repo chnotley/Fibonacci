@@ -33,7 +33,7 @@ int VeryLong::convertLeastSignificantDigitToInt(void)
 //
 VeryLong VeryLong::operator+ (const VeryLong& addend) const
 {
-    VeryLong &result = *new VeryLong();
+    VeryLong result;
     std::string::const_reverse_iterator firstAddendIterator = this->num.rbegin();
     std::string::const_reverse_iterator secondAddendIterator = addend.num.rbegin();
     std::string::reverse_iterator resultIterator = result.num.rbegin();
