@@ -80,8 +80,9 @@ void Fibonacci::recursivePrintSequence(VeryLong mostRecentPreceding,
 
 std::ostream& operator<<(std::ostream& os, const VeryLong val)
 {
+    std::string num = val.num;
     
-    os << std::string(val.num);
+    os << num.erase(0, std::min(num.find_first_not_of('0'), num.size()-1));
   
     return os;
 }
