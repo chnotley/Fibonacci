@@ -5,7 +5,7 @@
 VeryLong::VeryLong(void)
 {
     // Need at most 22 base 10 digits to represent the 100th number in the Fibonacci sequence
-    num = "0000000000000000000000";
+    num = TWENTY_TWO_ZEROS;
 }
 
 //
@@ -56,22 +56,6 @@ VeryLong VeryLong::operator+ (const VeryLong& addend) const
 }
 
 //
-// Assigns an unsigned value to a ReallyLong
-//
-VeryLong VeryLong::operator=(const unsigned& value)
-{
-    std::string::reverse_iterator reverseIterator = this->num.rbegin();
-    unsigned temp = value;
-
-    while(temp && reverseIterator != this->num.rend())
-    {
-        *reverseIterator = static_cast<char>((temp % 10) + '0');
-        temp /= 10;
-    }
-    return *this;
-}
-
-//
 // Assigns a VeryLong to a VeryLong
 //
 VeryLong VeryLong::operator=(const VeryLong& value)
@@ -79,4 +63,9 @@ VeryLong VeryLong::operator=(const VeryLong& value)
     this->num = value.num;
 
     return *this;
+}
+
+void VeryLong::initialValueSetter(const std::string num)
+{
+    this->num = num;
 }

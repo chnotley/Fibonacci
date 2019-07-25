@@ -7,8 +7,8 @@
 Fibonacci::Fibonacci(void)
 {
     sequenceNumber = 0;
-    nextMostRecentPreceding = 1;
-    mostRecentPreceding = 1;
+    nextMostRecentPreceding.initialValueSetter(TWENTY_ONE_ZEROS_AND_A_ONE);
+    mostRecentPreceding.initialValueSetter(TWENTY_ONE_ZEROS_AND_A_ONE);
 }
 
 //
@@ -21,11 +21,11 @@ VeryLong Fibonacci::iterativeNextInSequence(void)
     switch(this->sequenceNumber++)
     {
     case 0:
-        result = 0;
+        result.initialValueSetter(TWENTY_TWO_ZEROS);
         break;
     case 1:
     case 2:
-        result = 1;
+        result.initialValueSetter(TWENTY_ONE_ZEROS_AND_A_ONE);
         break;
     default:
         result = this->mostRecentPreceding + this->nextMostRecentPreceding;
@@ -52,19 +52,19 @@ void Fibonacci::recursivePrintSequence(VeryLong mostRecentPreceding,
         switch(mrp + nmrp)
         {
         case 0:
-            result = 0;
-            mostRecentPreceding = 1;
+            result.initialValueSetter(TWENTY_TWO_ZEROS);
+            mostRecentPreceding.initialValueSetter(TWENTY_ONE_ZEROS_AND_A_ONE);
             break;
         case 1:
-            result = 1;
+            result.initialValueSetter(TWENTY_ONE_ZEROS_AND_A_ONE);
             if(1 == mrp)
             {
-                mostRecentPreceding = 0;
-                nextMostRecentPreceding = 1;
+                mostRecentPreceding.initialValueSetter(TWENTY_TWO_ZEROS);
+                nextMostRecentPreceding.initialValueSetter(TWENTY_ONE_ZEROS_AND_A_ONE);
             }
             else
             {
-                mostRecentPreceding = 1;
+                mostRecentPreceding.initialValueSetter(TWENTY_ONE_ZEROS_AND_A_ONE);
             }
             break;
         default:
