@@ -1,6 +1,6 @@
 #include <iostream>
 #include "fibonacci.h"
-#define FIBONACCI_SEQUENCE_LIMIT 50
+#define FIBONACCI_SEQUENCE_LIMIT 100
 
 //
 // Program to display first 50 numbers is the Fibonacci sequence
@@ -10,6 +10,8 @@ int main()
 {
     int sequenceIterator;
     Fibonacci obj;
+    VeryLong arg1;
+    VeryLong arg2;
 
     std::cout << "\nUsing iterative method to disply the first " \
               << FIBONACCI_SEQUENCE_LIMIT \
@@ -20,11 +22,11 @@ int main()
         std::cout << obj.iterativeNextInSequence() << '\n';
     }
 
-    std::cout << "\nUsing recursive method to disply the first " \
+    std::cout << "\nUsing recursive method to disply the first "\
               << FIBONACCI_SEQUENCE_LIMIT \
               << " numbers of the Fibonacci Sequence\n\n";
 
-    obj.recursivePrintSequence(0, 0, FIBONACCI_SEQUENCE_LIMIT);
+    obj.recursivePrintSequence(arg1, arg2, FIBONACCI_SEQUENCE_LIMIT);
 
     return 0;
 }

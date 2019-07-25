@@ -14,9 +14,9 @@ Fibonacci::Fibonacci(void)
 //
 // Calculates the next number in a Fibonacci sequence.
 //
-unsigned long Fibonacci::iterativeNextInSequence(void)
+VeryLong Fibonacci::iterativeNextInSequence(void)
 {
-    unsigned long result;
+    VeryLong result;
 
     switch(this->sequenceNumber++)
     {
@@ -37,15 +37,19 @@ unsigned long Fibonacci::iterativeNextInSequence(void)
     return result;
 }
 
-void Fibonacci::recursivePrintSequence(unsigned long mostRecentPreceding,
-                                           unsigned long nextMostRecentPreceding,
-                                           unsigned long sequenceMax)
+void Fibonacci::recursivePrintSequence(VeryLong mostRecentPreceding,
+                                           VeryLong nextMostRecentPreceding,
+                                           unsigned sequenceMax)
 {
-    unsigned long result;
+    VeryLong result;
+    int mrp;
+    int nmrp;
 
     if(sequenceMax > 0)
     {
-        switch(mostRecentPreceding + nextMostRecentPreceding)
+        mrp = mostRecentPreceding.convertLeastSignificantDigitToInt();
+        nmrp = nextMostRecentPreceding.convertLeastSignificantDigitToInt();
+        switch(mrp + nmrp)
         {
         case 0:
             result = 0;
@@ -53,7 +57,7 @@ void Fibonacci::recursivePrintSequence(unsigned long mostRecentPreceding,
             break;
         case 1:
             result = 1;
-            if(1 == mostRecentPreceding)
+            if(1 == mrp)
             {
                 mostRecentPreceding = 0;
                 nextMostRecentPreceding = 1;
@@ -69,7 +73,15 @@ void Fibonacci::recursivePrintSequence(unsigned long mostRecentPreceding,
             mostRecentPreceding = result;
             break;
         }
-        std::cout << result << '\n';
+        std::cout << result << std::endl;
         this->recursivePrintSequence(mostRecentPreceding, nextMostRecentPreceding, sequenceMax - 1);
     }
+}
+
+std::ostream& operator<<(std::ostream& os, const VeryLong val)
+{
+    
+    os << std::string(val.num);
+  
+    return os;
 }

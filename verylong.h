@@ -8,11 +8,14 @@
 //
 class VeryLong
 {
- private:
-    char *num;
+private:
+    std::string num;
 
- public:
-VeryLong();
-~VeryLong();
+public:
+    VeryLong();
     VeryLong operator+(const VeryLong&) const;
+    VeryLong operator=(const VeryLong&);
+    VeryLong operator=(const unsigned&);
+    int convertLeastSignificantDigitToInt(void);
+    friend std::ostream& operator<<(std::ostream&, const VeryLong);
 };

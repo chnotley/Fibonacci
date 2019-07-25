@@ -5,16 +5,17 @@
 // operators
 
 #pragma once
+#include "verylong.h"
 
 class Fibonacci
 {
  private:
     int sequenceNumber;
-    unsigned long mostRecentPreceding;
-    unsigned long nextMostRecentPreceding;
+    VeryLong mostRecentPreceding;
+    VeryLong nextMostRecentPreceding;
 
  public:
     Fibonacci();
-    unsigned long iterativeNextInSequence(void);
-    void recursivePrintSequence(unsigned long, unsigned long, unsigned long);
+    VeryLong iterativeNextInSequence(void);
+    void recursivePrintSequence(VeryLong, VeryLong, unsigned);
 };
